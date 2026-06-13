@@ -1,1 +1,7 @@
-
+wedding-invitation/
+├─ index.html
+└─ images/
+   ├─ main.jpg      
+   ├─ photo1.jpg    
+   ├─ photo2.jpg
+   └─ photo3.jpg
