@@ -5,29 +5,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yuki & Nana Wedding Invitation</title>
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:#3b332d;background:#faf7f2}
+
 .hero{
-  min-height:100vh;background:url("images/main.jpg") center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;
+  min-height:100vh;
+  background:url("images/main.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  position:relative;
 }
 .hero:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35)}
 .hero div{position:relative;padding:30px}
 .hero h1{font-size:46px;letter-spacing:4px;margin:20px 0}
 .hero p{font-size:18px;letter-spacing:2px}
+
+.countdown{margin-top:30px}
+.countdown h2{font-size:32px;margin:10px 0 0}
+
 section{padding:80px 24px;text-align:center}
 h2{font-size:30px;margin-bottom:30px;font-weight:normal;letter-spacing:2px}
 .message p,.info p{line-height:2;font-size:16px}
+
 .card{
-  background:white;max-width:520px;margin:0 auto;padding:36px 24px;
-  border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.08)
+  background:white;
+  max-width:520px;
+  margin:0 auto;
+  padding:36px 24px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08)
 }
+
 .btn{
-  display:inline-block;margin-top:25px;padding:14px 34px;border-radius:999px;
-  background:#8b6f47;color:white;text-decoration:none;letter-spacing:1px
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 34px;
+  border-radius:999px;
+  background:#8b6f47;
+  color:white;
+  text-decoration:none;
+  letter-spacing:1px
 }
-.footer{padding:50px 20px;font-size:14px;color:#8b7b6f}
+
+.footer{padding:50px 20px;font-size:14px;color:#8b7b6f;text-align:center}
 </style>
 </head>
 
@@ -39,14 +64,19 @@ h2{font-size:30px;margin-bottom:30px;font-weight:normal;letter-spacing:2px}
     <h1>Yuki & Nana</h1>
     <p>2026.09.22 Tue</p>
     <p>THE GARDEN ORIENTAL OSAKA</p>
+
+    <div class="countdown">
+      <p>Wedding Dayまで</p>
+      <h2 id="timer">Loading...</h2>
+    </div>
   </div>
 </section>
 
 <section class="message">
   <h2>Message</h2>
   <p>
-    このたび 私たちはこれまで支えてくださった皆様に<br>
-    感謝の気持ちをお伝えしたく<br>
+    このたび 私たちはこれまで支えてくださった<br>
+    皆さまへ感謝の気持ちをお伝えしたく<br>
     ささやかながら結婚パーティーを催したいと思っております。<br><br>
     当日 皆さまにお会いできますことを<br>
     心より楽しみにしております。
@@ -59,10 +89,8 @@ h2{font-size:30px;margin-bottom:30px;font-weight:normal;letter-spacing:2px}
     <p>
       <strong>日時</strong><br>
       2026年9月22日（火）<br><br>
-
       <strong>会場</strong><br>
       THE GARDEN ORIENTAL OSAKA<br><br>
-
       <strong>住所</strong><br>
       大阪府大阪市都島区網島町10-35
     </p>
@@ -79,7 +107,7 @@ h2{font-size:30px;margin-bottom:30px;font-weight:normal;letter-spacing:2px}
       お手数ではございますが<br>
       ご出欠のご回答をお願いいたします。
     </p>
-    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSchmOFMw7UD1zHJ6KZES1ATl3wtpn4XACMPlj8T1sFW5DHSbw/viewform?usp=dialog" target="_blank">
+    <a class="btn" href="https://docs.google.com/forms/d/1L6LXdjzUomg0W3h6jcsvRFrCbL0r5lSgBZipAefq2_E/edit#responses" target="_blank">
       出欠を回答する
     </a>
   </div>
@@ -88,6 +116,21 @@ h2{font-size:30px;margin-bottom:30px;font-weight:normal;letter-spacing:2px}
 <div class="footer">
   Yuki Miura & Nana Umehara
 </div>
+
+<script>
+const weddingDate = new Date("2026-09-22T00:00:00");
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = weddingDate - now;
+  const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+  document.getElementById("timer").textContent = `${days} Days`;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 60000);
+</script>
 
 </body>
 </html>
